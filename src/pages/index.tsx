@@ -55,14 +55,16 @@ export default function Home() {
         alignItems: 'center',
         padding: '20px',
     }
-    const debounceDirection = useDebounce(direction, 2000)
+    const debounceDirection = useDebounce(direction, 200)
     const debounceWidth = useDebounce(width, 200)
     const debounceHeight = useDebounce(height, 200)
-  return (
-    <div ref={containerRef} style={containerStyle}>
-        {direction ? <MatrixClock direction={debounceDirection} darkMode={darkMode} width={debounceWidth} height={debounceHeight}/> : null}
-    </div>
-  );
+
+    return (
+        <div ref={containerRef} style={containerStyle}>
+            {debounceDirection ? <MatrixClock direction={debounceDirection} darkMode={darkMode} width={debounceWidth}
+                                              height={debounceHeight}/> : null}
+        </div>
+    );
 }
 
 function useDebounce<T>(value: T, delay: number): T {
