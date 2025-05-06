@@ -1,5 +1,5 @@
 import MatrixClock from "@/components/clock";
-import {useEffect, useRef, useState} from "react";
+import {CSSProperties, useEffect, useRef, useState} from "react";
 
 export default function Home() {
     const [direction, setDirection] = useState<"horizontal" | "vertical" | undefined>(undefined);
@@ -47,13 +47,12 @@ export default function Home() {
             mqList.removeEventListener('change', handleChange);
         }
     }, []);
-    const containerStyle = {
-        height: '100vh',
-        width: '100vw',
+    const containerStyle: CSSProperties = {
+        height: 'calc(100vh - 40px)',
+        width: 'calc(100vw - 40px)',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: '20px',
     }
     const debounceDirection = useDebounce(direction, 200)
     const debounceWidth = useDebounce(width, 200)
@@ -61,8 +60,9 @@ export default function Home() {
 
     return (
         <div ref={containerRef} style={containerStyle}>
-            {debounceDirection ? <MatrixClock direction={debounceDirection} darkMode={darkMode} width={debounceWidth}
-                                              height={debounceHeight}/> : null}
+            {debounceDirection ?
+                <MatrixClock direction={debounceDirection} darkMode={darkMode} width={debounceWidth}
+                             height={debounceHeight}/> : null}
         </div>
     );
 }
