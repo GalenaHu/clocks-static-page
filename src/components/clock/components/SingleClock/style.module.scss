@@ -1,0 +1,8 @@
+.single-clock {
+  border-radius: 50%;
+  position: relative;
+
+  .minute,.hour {
+    position: absolute;
+  }
+}
