@@ -48,8 +48,8 @@ export default function Home() {
         }
     }, []);
     const containerStyle: CSSProperties = {
-        height: 'calc(100vh - 40px)',
-        width: 'calc(100vw - 40px)',
+        height: 'calc(100svh - 40px)',
+        width: 'calc(100svw - 40px)',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
